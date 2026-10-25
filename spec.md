@@ -103,7 +103,7 @@ After benefits (block 3); specificity "from" — overall «от 19 900 ₽» + p
 ### Stack, deploy, analytics
 
 - Stack tier: `static-prerender`. Vite, vanilla HTML + CSS + minimal TS/JS, built to static HTML.
-- `enhanced_js: false`; no libraries. Only script: booking modal open/close, form validation, toast.
+- `enhanced_js: false`; no libraries. Only script: booking modal open/close, form validation, toast, and the header compact-on-scroll class toggle.
 - Host: GitHub Pages project site of repo `JustSnow/teeth_land` (Vite base path `/teeth_land/`). No custom domain. No backend.
 - Analytics: none.
 
