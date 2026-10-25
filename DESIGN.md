@@ -39,7 +39,9 @@ Header (chrome): text logo «Опора», anchor nav («Виды и цены» 
 5. **Doctors** — 2 × `team_member` (name + role, fictional) + ref #5 photo.
 6. **Reviews** — 3 × `testimonial` (grey avatar, quote, name, Kazan district; fictional, restrained, one 4-star) + `review_summary`.
 7. **FAQ & guarantees** — ~6 × `faq_item` + 3 × `trust_badge` («Гарантия 1 год», «Коррекции бесплатно», «Лицензия»).
-8. **Final CTA & contacts** — `cta_form` (name, phone) + `service_area` (Kazan districts, NAP name/phone/address, hours, Telegram).
+8. **Final CTA & contacts** — inline `cta_form` (name, phone; same form as the modal; on submit fields reset + toast) + `service_area` (Kazan districts, NAP name/phone/address, hours, Telegram). No map embed.
+
+Booking modal (chrome): all CTA buttons open a native `<dialog>` with the `cta_form`; on valid submit it closes and a toast appears at the bottom of the viewport (~5s, close button, `role="status"`). No-JS fallback: CTAs link to the block 8 form.
 
 Footer (chrome): medical disclaimer, license placeholder, «Демо-проект, клиника вымышленная».
 
@@ -73,7 +75,7 @@ Secondary live beat: light primary-CTA hover. No media-row hover (no gallery).
 
 ## Enhanced JS
 
-`needs_enhanced_js: false` — stack stays `static-prerender`. The only script is the vanilla placeholder form handler (validation + success message), already in CONTEXT.
+`needs_enhanced_js: false` — stack stays `static-prerender`. The only script is vanilla: booking modal open/close, placeholder form validation, toast (see CONTEXT Primary CTA). No libraries.
 
 ## Reference lock
 

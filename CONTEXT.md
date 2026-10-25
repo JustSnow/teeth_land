@@ -35,10 +35,11 @@ Adults 50+ in Kazan. Main pain: fear the denture will fall out, hold poorly, int
 
 ## Primary CTA
 
-Label: «Записаться на консультацию» → opens a booking form.
-Form fields: name, phone (+7 format). In return: a callback from the clinic administrator («Спасибо, перезвоним в течение 15 минут»).
-Form is a placeholder: client-side validation + success message only; nothing is sent anywhere.
-Secondary contacts: clickable `tel:` phone and Telegram link (fictional placeholders).
+Label: «Записаться на консультацию» → opens the booking form in a modal dialog (every CTA instance: header, hero, mid-page repeats). Without JS the CTA links to the inline booking form in the final contacts block.
+Form fields: name, phone (+7 format). In return: a callback from the clinic administrator.
+Form is a placeholder: client-side validation (inline field errors, modal stays open on error); on valid submit the modal closes (inline form: fields reset) and a toast shows «Заявка отправлена. Перезвоним в течение 15 минут». Nothing is sent anywhere.
+Under the submit button: personal-data consent line (152-FZ) with a placeholder privacy-policy link.
+Secondary contacts: clickable `tel:` phone `+7 (843) 000-00-00` and Telegram `@opora_demo` (deliberately fake placeholders).
 
 ## Price
 
@@ -57,7 +58,7 @@ Placement: after benefits. Specificity: from — overall «от 19 900 ₽» plu
 
 ## Deploy and stack
 
-Stack tier: `static-prerender` — Vite (vanilla HTML + CSS + minimal TS/JS), built to static HTML. Small vanilla script for the placeholder form only; no libraries.
+Stack tier: `static-prerender` — Vite (vanilla HTML + CSS + minimal TS/JS), built to static HTML. Small vanilla script for the booking modal (native `<dialog>`), placeholder form validation, and toast only; no libraries.
 Host: GitHub Pages. No custom domain.
 Backend: none.
 
